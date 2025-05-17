@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IIT EXPERT | Enterprise IT Solutions - Repairs, Network & Freelance Services</title>
+    <meta name="description" content="Certified IT services including hardware repairs, network solutions, and freelance IT support in Warsaw. 24-month warranty on all services.">
+    <style>
+        :root {
+            --primary: #0A2463;   /* Deep corporate blue */
+            --accent: #D90429;    /* Urgent red */
+            --action: #008DD5;    /* Action blue */
+            --tech: #00A878;      /* Tech green */
+            --dark: #212529;
+            --light: #F8F9FA;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: var(--dark);
+        }
+        
+        /* ===== Premium Header ===== */
+        header {
+            background: white;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--action);
+        }
+        
+        .emergency-cta {
+            background: var(--accent);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .emergency-cta:hover {
+            background: #C00424;
+            transform: translateY(-2px);
+        }
+        
+        /* ===== Hero Section ===== */
+        .hero {
+            background: linear-gradient(135deg, rgba(10, 36, 99, 0.9) 0%, rgba(0, 141, 213, 0.8) 100%), 
+                        url('network-infrastructure.jpg') center/cover no-repeat;
+            color: white;
+            padding: 150px 5%;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            max-width: 900px;
+            margin: 0 auto 25px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 16px 32px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background: var(--action);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #0078B4;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 141, 213, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        /* ===== Services Sections ===== */
+        .section {
+            padding: 100px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-header h2 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .section-header p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* ===== Service Grids ===== */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-card-header {
+            background: var(--primary);
+            color: white;
+            padding: 20px;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .service-card-header .price {
+            background: white;
+            color: var(--primary);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 700;
+        }
+        
+        .service-card-body {
+            padding: 30px;
+        }
+        
+        .service-features {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        
+        .service-features li {
+            padding: 10px 0;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .service-features li:before {
+            content: "✓";
+            color: var(--tech);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        /* ===== Network Services ===== */
+        .network-services {
+            background: var(--light);
+        }
+        
+        /* ===== Freelancer Services ===== */
+        .freelancer-card {
+            border-left: 4px solid var(--action);
+        }
+        
+        /* ===== Hardware Section ===== */
+        .hardware-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            position: relative;
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+        
+        .product-img {
+            height: 220px;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .product-img img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+        
+        .product-details {
+            padding: 25px;
+        }
+        
+        .product-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .product-specs {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .product-specs li {
+            padding: 5px 0;
+        }
+        
+        .product-price {
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin: 20px 0;
+        }
+        
+        .add-to-cart {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: var(--action);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .add-to-cart:hover {
+            background: #0078B4;
+        }
+        
+        /* ===== Footer ===== */
+        footer {
+            background: #111;
+            color: white;
+            padding: 80px 5% 30px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto 50px;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .footer-logo span {
+            color: var(--accent);
+        }
+        
+        .footer-about p {
+            color: #aaa;
+            line-height: 1.7;
+        }
+        
+        .footer-links h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .contact-info {
+            color: #aaa;
+        }
+        
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--action);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--action);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        /* ===== Responsive ===== */
+        @media (max-width: 1024px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding: 100px 5%;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Premium Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">IIT <span>EXPERT</span></div>
+            <div class="nav-links">
+                <a href="#repairs">Repairs</a>
+                <a href="#network">Network</a>
+                <a href="#freelance">Freelance</a>
+                <a href="#hardware">Hardware</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <a href="tel:+48728858994" class="emergency-cta">
+                <i class="fas fa-phone-alt"></i> +48 728 858 994
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Enterprise IT Solutions & Network Infrastructure Services</h1>
+        <p>Certified IT repairs, network deployments, and freelance technical support in Warsaw. 24-month warranty on all services.</p>
+        <div class="cta-buttons">
+            <a href="#contact" class="btn btn-primary">
+                <i class="fas fa-envelope"></i> Request Consultation
+            </a>
+            <a href="tel:+48728858994" class="btn btn-secondary">
+                <i class="fas fa-phone-alt"></i> Call Now
+            </a>
+        </div>
+    </section>
+
+    <!-- Repair Services -->
+    <section id="repairs" class="section">
+        <div class="section-header">
+            <h2>IT Repair Services</h2>
+            <p>Certified solutions with enterprise-grade components and warranty</p>
+        </div>
+        
+        <div class="service-grid">
+            <!-- Repair Service 1 -->
+            <div class="service-card">
+                <div class="service-card-header">
+                    <span>Laptop Repairs</span>
+                    <span class="price">From €59</span>
+                </div>
+                <div class="service-card-body">
+                    <ul class="service-features">
+                        <li>Screen replacement (all brands)</li>
+                        <li>Battery diagnostics & replacement</li>
+                        <li>Motherboard-level repairs</li>
+                        <li>Liquid damage recovery</li>
+                        <li>Keyboard & touchpad replacement</li>
+                        <li>Data transfer services</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary" style="width: 100%; text-align: center;">
+                        Book Repair Service
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Repair Service 2 -->
+            <div class="service-card">
+                <div class="service-card-header">
+                    <span>Desktop & Workstation</span>
+                    <span class="price">From €79</span>
+                </div>
+                <div class="service-card-body">
+                    <ul class="service-features">
+                        <li>Component-level diagnostics</li>
+                        <li>Power supply replacement</li>
+                        <li>Cooling system overhaul</li>
+                        <li>Performance optimization</li>
+                        <li>Custom water cooling setups</li>
+                        <li>Enterprise workstation config</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary" style="width: 100%; text-align: center;">
+                        Book Repair Service
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Repair Service 3 -->
+            <div class="service-card">
+                <div class="service-card-header">
+                    <span>Data Recovery</span>
+                    <span class="price">From €99</span>
+                </div>
+                <div class="service-card-body">
+                    <ul class="service-features">
+                        <li>Hard drive recovery</li>
+                        <li>SSD data extraction</li>
+                        <li>RAID array reconstruction</li>
+                        <li>Virus/malware removal</li>
+                        <li>Encrypted drive recovery</li>
+                        <li>Backup system implementation</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary" style="width: 100%; text-align: center;">
+                        Book Recovery Service
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Network Services -->
+    <section id="network" class="section network-services">
+        <div class="section-header">
+            <h2>Network Infrastructure Services</h2>
+            <p>Enterprise-grade network solutions for businesses and organizations</p>
+        </div>
+        
+        <div class="service-grid">
+            <!-- Network Service 1 -->
+            <div class="service-card">
+                <div class="service-card-header">
+                    <span>Network Installation</span>
+                    <span class="price">Project-Based</span>
+                </div>
+                <div class="service-card-body">
+                    <ul class="service-features">
+                        <li>Structured cabling (CAT6/CAT6a)</li>
+                        <li>Fiber optic installation</li>
+                        <li>Network rack assembly</li>
+                        <li>Patch panel termination</li>
+                        <li>Wireless access point setup</li>
+                        <li>Cable management solutions</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary" style="width: 100%; text-align: center;">
+                        Request Network Audit
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Network Service 2 -->
+            <div class="service-card">
+                <div class="service-card-header">
+                    <span>Network Equipment</span>
+                    <span class="price">From €199</span>
+                </div>
+                <div class="service-card-body">
+                    <ul class="service-features">
+                        <li>Cisco Catalyst switch setup</li>
+                        <li>Firewall configuration</li>
+                        <li>Router installation</li>
+                        <li>Load balancer deployment</li>
+                        <li>VPN setup</li>
+                        <li>Network security hardening</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary" style="width: 100%; text-align: center;">
+                        Get Network Quote
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Network Service 3 -->
+            <div class="service-card">
+                <div class="service-card-header">
+                    <span>Ongoing Support</span>
+                    <span class="price">From €45/hr</span>
+                </div>
+                <div class="service-card-body">
+                    <ul class="service-features">
+                        <li>Network monitoring</li>
+                        <li>Performance optimization</li>
+                        <li>Security updates</li>
+                        <li>24/7 emergency support</li>
+                        <li>Quarterly maintenance</li>
+                        <li>Documentation & reporting</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary" style="width: 100%; text-align: center;">
+                        Schedule Maintenance
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Freelancer Services -->
+    <section id="freelance" class="section">
+        <div class="section-header">
+            <h2>Freelance IT Services</h2>
+            <p>On-demand technical expertise for projects and temporary assignments</p>
+        </div>
+        
+        <div class="service-grid">
+            <!-- Freelance Service 1 -->
+            <div class="service-card freelancer-card">
+                <div class="service-card-header">
+                    <span>Project-Based Support</span>
+                    <span class="price">From €45/hr</span>
+                </div>
+                <div class="service-card-body">
+                    <ul class="service-features">
+                        <li>IT infrastructure projects</li>
+                        <li>System migrations</li>
+                        <li>Office setups</li>
+                        <li>Equipment deployment</li>
+                        <li>Technology upgrades</li>
+                        <li>Inventory management</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary" style="width: 100%; text-align: center;">
+                        Request Freelancer
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Freelance Service 2 -->
+            <div class="service-card freelancer-card">
+                <div class="service-card-header">
+                    <span>Consulting Services</span>
+                    <span class="price">From €65/hr</span>
+                </div>
+                <div class="service-card-body">
+                    <ul class="service-features">
+                        <li>Technology assessments</li>
+                        <li>Security audits</li>
+                        <li>Network design</li>
+                        <li>IT strategy development</li>
+                        <li>Vendor selection</li>
+                        <li>Budget planning</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary" style="width: 100%; text-align: center;">
+                        Schedule Consultation
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Freelance Service 3 -->
+            <div class="service-card freelancer-card">
+                <div class="service-card-header">
+                    <span>Remote Hands Support</span>
+                    <span class="price">From €35/hr</span>
+                </div>
+                <div class="service-card-body">
+                    <ul class="service-features">
+                        <li>Data center support</li>
+                        <li>Equipment installation</li>
+                        <li>Hardware troubleshooting</li>
+                        <li>Inventory management</li>
+                        <li>Documentation services</li>
+                        <li>Vendor coordination</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary" style="width: 100%; text-align: center;">
+                        Request Onsite Support
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hardware Sales -->
+    <section id="hardware" class="section">
+        <div class="section-header">
+            <h2>Premium Hardware Solutions</h2>
+            <p>Enterprise-grade equipment with stress testing and warranty</p>
+        </div>
+        
+        <div class="hardware-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="laptop-pro.png" alt="Dell Precision Workstation">
+                </div>
+                <div class="product-badge">In Stock</div>
+                <div class="product-details">
+                    <h3 class="product-title">Dell Precision 5570 Workstation</h3>
+                    <ul class="product-specs">
+                        <li>Intel Core i7-12800H</li>
+                        <li>32GB DDR5 RAM</li>
+                        <li>1TB NVMe SSD</li>
+                        <li>NVIDIA RTX A1000</li>
+                        <li>15.6" 4K Touch Display</li>
+                    </ul>
+                    <div class="product-price">€2,199</div>
+                    <button class="add-to-cart">
+                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="network-switch.png" alt="Cisco Switch">
+                </div>
+                <div class="product-badge">Best Seller</div>
+                <div class="product-details">
+                    <h3 class="product-title">Cisco Catalyst 9200 Series</h3>
+                    <ul class="product-specs">
+                        <li>48-Port Gigabit Ethernet</li>
+                        <li>PoE+ Support</li>
+                        <li>Stackable Configuration</li>
+                        <li>Advanced Security Features</li>
+                        <li>Limited Lifetime Warranty</li>
+                    </ul>
+                    <div class="product-price">€1,499</div>
+                    <button class="add-to-cart">
+                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="gaming-pc.png" alt="Custom Gaming PC">
+                </div>
+                <div class="product-badge">Custom Build</div>
+                <div class="product-details">
+                    <h3 class="product-title">Apex Gaming System</h3>
+                    <ul class="product-specs">
+                        <li>AMD Ryzen 7 7800X3D</li>
+                        <li>32GB DDR5 6000MHz</li>
+                        <li>RTX 4070 Ti 12GB</li>
+                        <li>2TB Gen4 NVMe SSD</li>
+                        <li>360mm RGB Liquid Cooling</li>
+                    </ul>
+                    <div class="product-price">€2,999</div>
+                    <button class="add-to-cart">
+                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="nas-system.png" alt="NAS Storage">
+                </div>
+                <div class="product-badge">New Arrival</div>
+                <div class="product-details">
+                    <h3 class="product-title">Synology DiskStation DS1821+</h3>
+                    <ul class="product-specs">
+                        <li>8-Bay NAS Enclosure</li>
+                        <li>AMD Ryzen V1500B</li>
+                        <li>4GB DDR4 (Expandable)</li>
+                        <li>4x 1GbE LAN Ports</li>
+                        <li>PCIe Expansion Slot</li>
+                    </ul>
+                    <div class="product-price">€1,199</div>
+                    <button class="add-to-cart">
+                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-grid">
+            <div class="footer-about">
+                <a href="#" class="footer-logo">IIT <span>EXPERT</span></a>
+                <p>Providing enterprise IT solutions, network services, and technical expertise in Warsaw and surrounding areas.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-xing"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#repairs">IT Repairs</a></li>
+                    <li><a href="#network">Network Solutions</a></li>
+                    <li><a href="#freelance">Freelance Support</a></li>
+                    <li><a href="#hardware">Hardware Sales</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#testimonials">Client Feedback</a></li>
+                    <li><a href="#blog">Tech Blog</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Contact</h3>
+                <div class="contact-info">
+                    <p><i class="fas fa-map-marker-alt"></i> Serocka 18/9, 04-333 Warsaw</p>
+                    <p><i class="fas fa-phone-alt"></i> +48 728 858 994</p>
+                    <p><i class="fas fa-envelope"></i> ihabeb@hotmail.com</p>
+                    <p><i class="fas fa-clock"></i> Mon-Fri: 8AM-6PM | Sat: 9AM-2PM</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2024 <strong>IIT EXPERT.PL</strong>. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        </div>
+    </footer>
+</body>
+</html>
